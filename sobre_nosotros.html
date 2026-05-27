@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nosotros</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+            background:#000;
+            font-family:'Times New Roman', serif;
+            overflow-x:hidden;
+        }
+
+        .header{
+            background-color:#000;
+            width:100%;
+            height:80px;
+            top:0;
+            position:fixed;
+            z-index:1000;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+        }
+
+        .mopciones{
+            color:#9a9a9a;
+            text-decoration:none;
+            font-size:18px;
+            margin:0 18px;
+            transition:.3s;
+        }
+
+        .mopciones:hover{
+            color:#fff;
+            letter-spacing:1px;
+        }
+
+        .body{
+            margin-top:80px;
+            background:#f4f1eb;
+            position:relative;
+            overflow:hidden;
+        }
+
+        .body::before{
+            content:"";
+            width:700px;
+            height:700px;
+            background:radial-gradient(circle, rgba(0,0,0,.05), transparent 70%);
+            position:absolute;
+            top:-250px;
+            right:-250px;
+        }
+
+        .body::after{
+            content:"";
+            width:500px;
+            height:500px;
+            background:radial-gradient(circle, rgba(0,0,0,.04), transparent 70%);
+            position:absolute;
+            bottom:-200px;
+            left:-200px;
+        }
+
+        .hero{
+            padding:140px 80px 80px;
+            text-align:center;
+            position:relative;
+            z-index:2;
+        }
+
+        .hero h1{
+            font-size:70px;
+            color:#111;
+            letter-spacing:4px;
+            margin-bottom:20px;
+        }
+
+        .hero p{
+            max-width:750px;
+            margin:auto;
+            color:#555;
+            line-height:2;
+            font-size:18px;
+        }
+
+        .showcase{
+            padding:40px 80px 120px;
+            display:flex;
+            flex-direction:column;
+            gap:120px;
+            position:relative;
+            z-index:2;
+        }
+
+        .block{
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:60px;
+            align-items:center;
+        }
+
+        .block.reverse .image{
+            order:2;
+        }
+
+        .image{
+            width:100%;
+            height:450px;
+            overflow:hidden;
+            border-radius:20px;
+            box-shadow:0 20px 40px rgba(0,0,0,.18);
+            position:relative;
+            transition:.5s;
+        }
+
+        .image img{
+            width:120%;
+            height:120%;
+            object-fit:cover;
+        }
+
+        .image:hover{
+            transform:scale(1.1);
+        }
+
+        .content{
+            animation:fadeUp 1s ease;
+        }
+
+        .content span{
+            color:#8d8d8d;
+            letter-spacing:3px;
+            font-size:13px;
+        }
+
+        .content h2{
+            font-size:42px;
+            margin:15px 0 20px;
+            color:#111;
+        }
+
+        .content p{
+            color:#555;
+            line-height:2;
+            text-align:justify;
+            font-size:17px;
+        }
+
+        .info{
+            padding:0 80px 120px;
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:40px;
+            position:relative;
+            z-index:2;
+        }
+
+        .card{
+            background:white;
+            padding:60px 50px;
+            border-radius:25px;
+            position:relative;
+            overflow:hidden;
+            box-shadow:0 15px 35px rgba(0,0,0,.08);
+            transition:.5s;
+        }
+
+        .card:hover{
+            transform:translateY(-12px);
+        }
+
+        .card::before{
+            content:"";
+            position:absolute;
+            width:200px;
+            height:200px;
+            background:rgba(0,0,0,.03);
+            border-radius:50%;
+            top:-80px;
+            right:-80px;
+        }
+
+        .card h3{
+            font-size:34px;
+            margin-bottom:15px;
+            position:relative;
+            z-index:2;
+        }
+
+        .card p{
+            color:#555;
+            line-height:2;
+            position:relative;
+            z-index:2;
+        }
+
+        .map{
+            padding:0 80px 120px;
+            text-align:center;
+            position:relative;
+            z-index:2;
+        }
+
+        .map h2{
+            font-size:45px;
+            margin-bottom:35px;
+            color:#111;
+        }
+
+        .map iframe{
+            width:100%;
+            height:500px;
+            border:none;
+            border-radius:25px;
+            box-shadow:0 20px 45px rgba(0,0,0,.15);
+            transition:.5s;
+        }
+
+        .map iframe:hover{
+            transform:scale(1.01);
+        }
+
+        @keyframes fadeUp{
+            from{
+                opacity:0;
+                transform:translateY(60px);
+            }
+            to{
+                opacity:1;
+                transform:translateY(0);
+            }
+        }
+
+        .footer{
+            background-color: dimgray;
+            width: 100%;
+            padding: 40px;
+            box-sizing: border-box;
+
+            display: grid;
+            grid-template-columns: 1fr 1fr 1/2fr;
+            grid-template-rows: auto auto;
+            gap: 30px;
+        }
+
+        .footer-left{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .icons{
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .icons a{
+            color: black;
+            font-size: 22px;
+            transition: 0.3s;
+        }
+
+        .icons a:hover{
+            color: white;
+            transform: scale(1.2);
+        }
+
+        .footer-middle{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .footer-middle a{
+            color: black;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .footer-middle a:hover{
+            color: white;
+        }
+
+        .footer-right{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .footer-right a{
+            color: black;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .footer-right a:hover{
+            color: white;
+        }
+
+        .footer-bottom{
+            grid-column: 1 / 4;
+            text-align: center;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        img{
+            max-width: 100%;
+        }
+
+        @media(max-width:1024px){
+
+            .hero{
+                padding: 120px 40px 70px;
+            }
+
+            .hero h1{
+                font-size: 55px;
+            }
+
+            .showcase{
+                padding: 40px 40px 100px;
+                gap: 90px;
+            }
+
+            .block{
+                gap: 40px;
+            }
+
+            .image{
+                height: 380px;
+            }
+
+            .content h2{
+                font-size: 36px;
+            }
+
+            .info{
+                padding: 0 40px 100px;
+                gap: 25px;
+            }
+
+            .card{
+                padding: 45px 35px;
+            }
+
+            .map{
+                padding: 0 40px 100px;
+            }
+
+            .footer{
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-middle{
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+
+            .footer-right{
+                justify-content: center;
+            }
+
+            .footer-bottom{
+                grid-column: auto;
+            }
+        }
+
+        @media(max-width:768px){
+
+            .header{
+                height: auto;
+                padding: 20px 10px;
+            }
+
+            .header div{
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .mopciones{
+                margin: 0;
+                font-size: 17px;
+            }
+
+            .hero{
+                padding: 120px 20px 60px;
+            }
+
+            .hero h1{
+                font-size: 38px;
+                letter-spacing: 2px;
+            }
+
+            .hero p{
+                font-size: 16px;
+                line-height: 1.8;
+            }
+
+            .showcase{
+                padding: 20px 20px 80px;
+                gap: 70px;
+            }
+
+            .block{
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .block.reverse{
+                display: flex;
+                flex-direction: column;
+            }
+
+            .block.reverse .image{
+                order: -1;
+            }
+
+            .image{
+                height: 400px;
+            }
+            
+            .content{
+                text-align: center;
+                padding: 0 10px;
+            }
+
+            .content h2{
+                font-size: 30px;
+            }
+
+            .content p{
+                font-size: 16px;
+                text-align: justify;
+            }
+
+            .info{
+                padding: 0 20px 80px;
+                grid-template-columns: 1fr;
+            }
+
+            .card{
+                padding: 40px 25px;
+            }
+
+            .card h3{
+                font-size: 28px;
+            }
+
+            .map{
+                padding: 0 20px 80px;
+            }
+
+            .map h2{
+                font-size: 32px;
+            }
+
+            .map iframe{
+                height: 350px;
+            }
+
+            .footer{
+                padding: 30px 20px;
+            }
+
+            .footer-middle{
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .footer-right{
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .icons{
+                justify-content: center;
+            }
+
+            .footer-bottom{
+                font-size: 12px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <div>
+            <a href="index.html" class="mopciones">Inicio</a>
+            <a href="niño.html" class="mopciones">Niño/a</a>
+            <a href="hombre.html" class="mopciones">Hombre</a>
+            <a href="mujer.html" class="mopciones">Mujer</a>
+        </div>
+    </div>
+
+    <div class="body">
+
+        <section class="hero">
+            <h1>JOYERÍA EL DORADO</h1>
+            <p>Más que joyas, creamos piezas que representan historias, momentos y elegancia atemporal.</p>
+        </section>
+
+        <section class="showcase">
+
+            <div class="block">
+
+                <div class="image">
+                    <img src="fotos/eldorado.png" style="transform: scale(1.2);">
+                </div>
+
+                <div class="content">
+                    <span>NUESTRA HISTORIA</span>
+                    <h2>Tradición y lujo</h2>
+                    <p>Joyería El Dorado nace de la pasión por el diseño y la elegancia.</p>
+                </div>
+
+            </div>
+
+            <div class="block reverse">
+
+                <div class="image">
+                    <img src="fotos/joyas1.webp" style="transform: scale(1.2);">
+                </div>
+
+                <div class="content">
+                    <span>NUESTRA ESENCIA</span>
+                    <h2>Elegancia moderna</h2>
+                    <p>Fusionamos lo clásico y moderno para crear joyas únicas.</p>
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="info">
+
+            <div class="card">
+                <h3>Misión</h3>
+                <p>Crear joyas exclusivas que transmitan emoción y elegancia.</p>
+            </div>
+
+            <div class="card">
+                <h3>Visión</h3>
+                <p>Ser una marca reconocida internacionalmente.</p>
+            </div>
+
+        </section>
+
+        <section class="map">
+
+            <h2>Nuestra Localización</h2>
+
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3986.1983695231734!2d-76.61017422498828!3d2.4408733570980243!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e30031abbe7487f%3A0xea93cf4637ba9511!2sJoyeria%20El%20Dorado!5e0!3m2!1ses-419!2shn!4v1779665989216!5m2!1ses-419!2shn" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+        </section>
+
+    </div>
+
+    <div class="footer">
+        <div class="footer-left">
+            <h3>Contacto</h3>
+            <div class="icons">
+                <a href="https://www.instagram.com"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.facebook.com"><i class="fa-brands fa-square-facebook"></i></a>
+                <a href="https://www.x.com"><i class="fa-brands fa-square-twitter"></i></a>
+            </div>
+            <a href="https://www.gmail.com" style="color:black; text-decoration:none; font-size:16px;">
+                @joyeriaeldorado@gmail.com
+            </a>
+        </div>
+
+        <div class="footer-middle">
+            <a href="#">Política de privacidad</a>
+            <a href="#">Términos y condiciones</a>
+            <a href="#">Cookies</a>
+            <a href="#">Envíos y devoluciones</a>
+        </div>
+
+        <div class="footer-right">
+            <a href="index.html">Inicio</a>
+            <a href="sobre_nosotros.html">Sobre Nosotros</a>
+        </div>
+
+        <div class="footer-bottom">
+            <p>Copyright © 2023 Joyeria El Dorado. All rights reserved.</p>
+        </div>
+
+    </div>
+
+</body>
+</html>

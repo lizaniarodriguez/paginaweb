@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html{
+            scroll-behavior: smooth;
+        }
+
+        body{
+            background-color: black;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .header{
+            background-color: black;
+            width: 100%;
+            height: 80px;
+            position: fixed;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .menu a{
+            color: rgb(110,110,110);
+            text-decoration: none;
+            font-size: 20px;
+            margin: 0 20px;
+            transition: 0.3s;
+        }
+
+        .menu a:hover{
+            color: white;
+            letter-spacing: 1px;
+        }
+
+        .parallax{
+            height: 100vh;
+            background-image: url(fotos/joyas2.png);
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            position: relative;
+        }
+
+        .parallax::before{
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-color: rgba(0,0,0,0.45);
+        }
+
+        .parallax h1{
+            color: white;
+            font-size: 70px;
+            letter-spacing: 5px;
+            z-index: 2;
+            animation: aparecer 2s ease;
+        }
+
+        @keyframes aparecer{
+            from{
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to{
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .body{
+            height: auto;
+            background-color: rgb(255,255,240);
+            width: 100%;
+            padding: 80px;
+        }
+
+        .titulo{
+            text-align: center;
+            color: rgb(95,95,95);
+            font-size: 32px;
+            font-weight: 300;
+            margin-bottom: 60px;
+        }
+
+        .cont{
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap: 30px;
+        }
+
+        .card{
+            height: auto;
+            width: 100%;
+            display: grid;
+            grid-template-rows: 85% 15%;
+            justify-items: center;
+            align-items: center;
+        }
+
+        .foto{
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .foto img{
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        .foto::after{
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-color: rgba(255,255,255,0.5);
+            opacity: 0;
+            transition: 0.3s;
+        }
+
+        .foto:hover::after{
+            opacity: 1;
+        }
+
+        .txt{
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            align-content: center;
+        }
+
+        .txt h2{
+            font-size: 28px;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .linea{
+            width: 70%;
+            height: 1px;
+            border: none;
+            background-color: rgb(180,180,180);
+            margin: 120px auto 100px auto;
+        }
+
+        .sec{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .izq h2{
+            font-size: 45px;
+            font-weight: 300;
+            color: rgb(40,40,40);
+            margin-bottom: 25px;
+        }
+
+        .izq h3{
+            font-size: 28px;
+            color: rgb(90,90,90);
+            font-weight: 300;
+            margin-bottom: 30px;
+        }
+
+        .izq p{
+            font-size: 20px;
+            color: rgb(95,95,95);
+            line-height: 1.8;
+            text-align: justify;
+            font-weight: 300;
+        }
+
+        .der{
+            position: relative;
+            height: 520px;
+        }
+
+        .der img{
+            width: 45%;
+            height: 45%;
+            object-fit: cover;
+            position: absolute;
+            border: 10px solid white;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.20);
+            transition: 0.4s;
+        }
+
+        .der img:hover{
+            transform: scale(1.03);
+        }
+
+        .i1{
+            left: 0%;
+            top: 0%;
+            z-index: 1;
+        }
+
+        .i2{
+            left: 30%;
+            top: 15%;
+            z-index: 2;
+        }
+
+        .i3{
+            left: 55%;
+            top: 45%;
+
+            z-index: 3;
+        }
+
+        .footer{
+            background-color: dimgray;
+            width: 100%;
+            padding: 40px;
+            box-sizing: border-box;
+
+            display: grid;
+            grid-template-columns: 1fr 1fr 1/2fr;
+            grid-template-rows: auto auto;
+            gap: 30px;
+        }
+        .footer-left{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .icons{
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        .icons a{
+            color: black;
+            font-size: 22px;
+            transition: 0.3s;
+        }
+
+        .icons a:hover{
+            color: white;
+            transform: scale(1.2);
+        }
+        .footer-middle{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+        }
+        .footer-middle a{
+            color: black;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .footer-middle a:hover{
+            color: white;
+        }
+        .footer-right{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 50px;
+        }
+        .footer-right a{
+            color: black;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .footer-right a:hover{
+            color: white;
+        }
+        .footer-bottom{
+            grid-column: 1 / 4;
+            text-align: center;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+        .fopciones{
+            color: black;
+            text-decoration: none;
+            font-size: 20px;
+            margin: 0 20px;
+        }
+
+        img{
+            max-width: 100%;
+        }
+
+        @media(max-width:1024px){
+            .parallax h1{
+                font-size: 62px;
+                text-align: center;
+                padding: 0 20px;
+            }
+            .body{
+                padding: 60px 40px;
+            }
+
+            .cont{
+                grid-template-columns: repeat(2,1fr);
+            }
+
+            .sec{
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .foto{
+                height: 350px;
+                width: 350px;
+            }
+            .izq h2{
+                font-size: 38px;
+            }
+
+            .izq h3{
+                font-size: 24px;
+            }
+
+            .izq p{
+                font-size: 18px;
+            }
+
+            .der{
+                height: 650px;
+                width: 100%;
+            }
+
+            .der img{
+                width: 40%;
+                height: 40%;
+            }
+
+            .i1{
+                left: 25%;
+            }
+
+            .i2{
+                left: 35%;
+                top: 25%;
+            }
+            
+            .i3{
+                top: 55%;
+                left: 25%;
+            }
+
+            .footer{
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-middle{
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+
+            .footer-right{
+                justify-content: center;
+            }
+
+            .footer-bottom{
+                grid-column: auto;
+            }
+        }
+
+        @media(max-width:768px){
+
+            .header{
+                height: auto;
+                padding: 20px 10px;
+            }
+
+            .menu{
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .menu a{
+                margin: 0;
+                font-size: 18px;
+            }
+
+            .parallax h1{
+                font-size: 42px;
+                text-align: center;
+                padding: 0 20px;
+            }
+
+            .body{
+                padding: 40px 20px;
+            }
+
+            .titulo{
+                font-size: 26px;
+                margin-bottom: 40px;
+            }
+
+            .cont{
+                grid-template-columns: 1fr;
+            }
+
+            .card{
+                height: auto;
+            }
+
+            .foto{
+                height: auto;
+                width: 80%;
+            }
+
+            .sec{
+                gap: 40px;
+            }
+
+            .izq h2{
+                font-size: 30px;
+                text-align: center;
+            }
+
+            .izq h3{
+                font-size: 22px;
+                text-align: center;
+            }
+
+            .izq p{
+                font-size: 17px;
+            }
+
+            .der{
+                height: auto;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 25px;
+            }
+
+            .der img{
+                position: static;
+                width: 70%;
+                height: auto;
+            }
+
+            .linea{
+                margin: 80px auto;
+            }
+
+            .footer{
+                padding: 30px 20px;
+            }
+
+            .footer-middle{
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .footer-right{
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .icons{
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="menu">
+            <a href="index.html" style="color: white;">Inicio</a>
+            <a href="niño.html">Niño/a</a>
+            <a href="hombre.html">Hombre</a>
+            <a href="mujer.html">Mujer</a>
+        </div>
+    </div>
+
+    <section class="parallax">
+        <h1>JOYERÍA EL DORADO</h1>
+    </section>
+
+    <div class="body">
+        <h2 class="titulo">Encuentra todo lo que necesitas</h2>
+        <div class="cont">
+            <div class="card">
+                <div class="foto">
+                    <img src="fotos/collares.webp" alt="">
+                </div>
+                <div class="txt">
+                    <h2>Collares</h2>
+                </div>
+            </div>
+            <div class="card">
+                <div class="foto">
+                    <img src="fotos/pulseras.webp" alt="">
+                </div>
+                <div class="txt">
+                    <h2>Pulseras</h2>
+                </div>
+            </div>
+            <div class="card">
+                <div class="foto">
+                    <img src="fotos/anillos.avif" alt="">
+                </div>
+                <div class="txt">
+                    <h2>Anillos</h2>
+                </div>
+            </div>
+            <div class="card">
+                <div class="foto">
+                    <img src="fotos/aretes.webp" alt="">
+                </div>
+                <div class="txt">
+                    <h2>Aretes</h2>
+                </div>
+            </div>
+        </div>
+        <hr class="linea">
+        <div class="sec">
+            <div class="izq">
+                <h2>¿Boda, cumpleaños, un regalo especial?</h2>
+                <h3>Te ofrecemos todo eso y mucho más.</h3>
+                <p>
+                    En Joyería El Dorado encontrarás piezas únicas para cada ocasión importante de tu vida. Desde detalles elegantes y delicados hasta joyas que destacan por su brillo y sofisticación.
+                    <br><br>
+                    Descubre colecciones diseñadas para celebrar el amor, sorprender a alguien especial o simplemente darte ese lujo que mereces.
+                </p>
+            </div>
+            <div class="der">
+                <img src="fotos/boda.jpeg" class="i1" alt="">
+                <img src="fotos/regalo.avif" class="i2" alt="">
+                <img src="fotos/regalo2.webp" class="i3" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="footer-left">
+            <h3>Contacto</h3>
+            <div class="icons">
+                <a href="https://www.instagram.com"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.facebook.com"><i class="fa-brands fa-square-facebook"></i></a>
+                <a href="https://www.x.com"><i class="fa-brands fa-square-twitter"></i></a>
+            </div>
+            <a href="https://www.gmail.com" style="color: black; text-decoration: none; font-size: 16px;">@joyeriaeldorado@gmail.com</a>
+        </div>
+        <div class="footer-middle">
+            <a href="#">Política de privacidad</a>
+            <a href="#">Términos y condiciones</a>
+            <a href="#">Cookies</a>
+            <a href="#">Envíos y devoluciones</a>
+        </div>
+        <div class="footer-right">
+            <a href="index.html">Inicio</a>
+            <a href="sobre_nosotros.html">Sobre Nosotros</a>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyright © 2023 Joyeria El Dorado. All rights reserved.</p>
+        </div>
+    </div>
+
+</body>
+</html>
